@@ -33,14 +33,7 @@ class MainSection extends Component {
   renderToggleAll(completedCount) {
     const {todos} = this.props;
     if (todos.length > 0) {
-      return (
-        <input
-          className="toggle-all"
-          type="checkbox"
-          checked={completedCount === todos.length}
-          onChange={this.handleCompleteAll}
-          />
-      );
+      return (<div></div>);
     }
   }
 
