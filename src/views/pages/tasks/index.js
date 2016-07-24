@@ -24,13 +24,13 @@ export class Tasks extends Component {
     tasks: PropTypes.instanceOf(List).isRequired,
     undeleteTask: PropTypes.func.isRequired,
     unloadTasks: PropTypes.func.isRequired,
-    updateTask: PropTypes.func.isRequired
+    updateTask: PropTypes.func.isRequired,
+    route: PropTypes.func.isRequired
   };
 
   componentWillMount() {
     this.props.loadTasks();
     this.props.filterTasks(this.props.location.query.filter);
-    console.log(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -61,8 +61,10 @@ export class Tasks extends Component {
       <div className="g-row">
         <h1>{this.props.route.name}</h1>
         <div className="g-col">
-          <TaskForm createTask={this.props.createTask}
-                    currentTaskList={this.props.route.name}/>
+          <TaskForm
+            createTask={this.props.createTask}
+            currentTaskList={this.props.route.name}
+          />
         </div>
 
         <div className="g-col">

@@ -17,6 +17,29 @@ export function getDeletedTask(state) {
   return getTasks(state).deleted;
 }
 
+export function getRouteFilter(state) {
+  var pathname = state.routing.locationBeforeTransitions.pathname;
+  var str = pathname.replace('/', '');
+  return str.toUpperCase();
+}
+
+export function filterTasks(tasks, filter) {
+  switch (filter) {
+    case 'active':
+      return tasks.filter(task => !task.completed);
+
+    case 'completed':
+      return tasks.filter(task => task.completed);
+
+    default:
+      return tasks;
+  }
+}
+
+export function filterRoute(tasks, filter) {
+  return tasks.filter(task => task.list === filter);
+}
+
 
 //=====================================
 //  MEMOIZED SELECTORS
@@ -25,16 +48,9 @@ export function getDeletedTask(state) {
 export const getVisibleTasks = createSelector(
   getTaskList,
   getTaskFilter,
-  (tasks, filter) => {
-    switch (filter) {
-      case 'active':
-        return tasks.filter(task => !task.completed);
-
-      case 'completed':
-        return tasks.filter(task => task.completed);
-
-      default:
-        return tasks;
-    }
+  getRouteFilter,
+  (tasks, filter, routeFilter) => {
+    var filteredTasks = filterTasks(tasks, filter);
+    return filterRoute(filteredTasks, routeFilter);
   }
 );

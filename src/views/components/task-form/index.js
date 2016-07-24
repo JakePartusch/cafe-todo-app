@@ -3,7 +3,8 @@ import React, { Component, PropTypes } from 'react';
 
 class TaskForm extends Component {
   static propTypes = {
-    createTask: PropTypes.func.isRequired
+    createTask: PropTypes.func.isRequired,
+    currentTaskList: PropTypes.func.isRequired
   };
 
   constructor(props, context) {
@@ -33,8 +34,7 @@ class TaskForm extends Component {
   onSubmit(event) {
     event.preventDefault();
     const title = this.state.title.trim();
-    console.log(this.props);
-    if (title.length) this.props.createTask(title);
+    if (title.length) this.props.createTask(title, this.props.currentTaskList);
     this.clearInput();
   }
 

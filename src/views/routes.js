@@ -42,19 +42,19 @@ export const getRoutes = getState => {
         }
       },
       {
-        name: "OPEN",
+        name: 'OPEN',
         path: paths.OPEN,
         component: Tasks,
         onEnter: requireAuth(getState)
       },
       {
-        name: "SHIFT",
+        name: 'SHIFT',
         path: paths.SHIFT,
         component: Tasks,
         onEnter: requireAuth(getState)
       },
       {
-        name: "CLOSE",
+        name: 'CLOSE',
         path: paths.CLOSE,
         component: Tasks,
         onEnter: requireAuth(getState)
