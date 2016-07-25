@@ -6,7 +6,6 @@ import { createSelector } from 'reselect';
 import { getNotification, notificationActions } from 'src/core/notification';
 import { getTaskFilter, getVisibleTasks, tasksActions } from 'src/core/tasks';
 import Notification from '../../components/notification';
-import TaskFilters from '../../components/task-filters';
 import TaskForm from '../../components/task-form';
 import TaskList from '../../components/task-list';
 
@@ -68,7 +67,6 @@ export class Tasks extends Component {
         </div>
 
         <div className="g-col">
-          <TaskFilters filter={this.props.filterType} />
           <TaskList
             deleteTask={this.props.deleteTask}
             tasks={this.props.tasks}
