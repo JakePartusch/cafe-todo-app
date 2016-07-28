@@ -9,6 +9,14 @@ export const paths = {
   SIGN_IN: '/sign-in',
   OPEN: '/open',
   SHIFT: '/shift',
+  SHIFT2: '/shift #2',
+  SHIFT3: '/shift #3',
+  PEPSI_FOUNTAIN: '/pepsi fountain',
+  DISPLAY_COOLER: '/display cooler',
+  REFRIGERATOR: '/refrigerator',
+  BACK_COOLER: '/back cooler',
+  ESPRESSO_MACHINE: '/espresso machine',
+  MANAGEMENT: '/management',
   CLOSE: '/close'
 };
 
@@ -50,6 +58,54 @@ export const getRoutes = getState => {
       {
         name: 'SHIFT',
         path: paths.SHIFT,
+        component: Tasks,
+        onEnter: requireAuth(getState)
+      },
+      {
+        name: 'SHIFT #2',
+        path: paths.SHIFT2,
+        component: Tasks,
+        onEnter: requireAuth(getState)
+      },
+      {
+        name: 'SHIFT #3',
+        path: paths.SHIFT3,
+        component: Tasks,
+        onEnter: requireAuth(getState)
+      },
+      {
+        name: 'PEPSI FOUNTAIN',
+        path: paths.PEPSI_FOUNTAIN,
+        component: Tasks,
+        onEnter: requireAuth(getState)
+      },
+      {
+        name: 'DISPLAY COOLER',
+        path: paths.DISPLAY_COOLER,
+        component: Tasks,
+        onEnter: requireAuth(getState)
+      },
+      {
+        name: 'REFRIGERATOR',
+        path: paths.REFRIGERATOR,
+        component: Tasks,
+        onEnter: requireAuth(getState)
+      },
+      {
+        name: 'BACK COOLER',
+        path: paths.BACK_COOLER,
+        component: Tasks,
+        onEnter: requireAuth(getState)
+      },
+      {
+        name: 'ESPRESSO MACHINE',
+        path: paths.ESPRESSO_MACHINE,
+        component: Tasks,
+        onEnter: requireAuth(getState)
+      },
+      {
+        name: 'MANAGEMENT',
+        path: paths.MANAGEMENT,
         component: Tasks,
         onEnter: requireAuth(getState)
       },
