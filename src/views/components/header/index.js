@@ -7,8 +7,7 @@ const Header = ({authenticated, signOut}) => {
     <header className="header">
       <div className="g-row">
         <div className="g-col">
-          <h1 className="header__title">Cafe Tasks</h1>
-          <Link className="header__route" to={{pathname: '/open'}}>Open</Link>
+          <Link className="header__title" to={{pathname: '/open'}}>Open</Link>
           <Link className="header__route" to={{pathname: '/shift'}}>Shift</Link>
           <Link className="header__route" to={{pathname: '/shift #2'}}>Shift #2</Link>
           <Link className="header__route" to={{pathname: '/shift #3'}}>Shift #3</Link>
