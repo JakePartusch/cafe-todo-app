@@ -24,7 +24,9 @@ export class Tasks extends Component {
     undeleteTask: PropTypes.func.isRequired,
     unloadTasks: PropTypes.func.isRequired,
     updateTask: PropTypes.func.isRequired,
-    route: PropTypes.func.isRequired
+    route: PropTypes.func.isRequired,
+    resetAllTasks: PropTypes.func.isRequired
+
   };
 
   componentWillMount() {
@@ -59,6 +61,7 @@ export class Tasks extends Component {
     return (
       <div className="g-row">
         <h1>{this.props.route.name}</h1>
+        <button class="btn" onClick={this.props.resetAllTasks}>RESET</button>
         <div className="g-col">
           <TaskForm
             createTask={this.props.createTask}

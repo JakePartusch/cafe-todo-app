@@ -12,6 +12,7 @@ import {
   UPDATE_TASK_ERROR,
   UPDATE_TASK_SUCCESS
 } from './action-types';
+import { firebaseDb } from '../firebase/firebase';
 
 
 export function createTask(title, currentList) {
@@ -121,4 +122,16 @@ export function unloadTasks() {
   return {
     type: UNLOAD_TASKS_SUCCESS
   };
+}
+
+export function resetAllTasks() {
+  let ref = firebaseDb.ref(taskList.path);
+  ref.once('value', (snapshot) => {
+    var value = snapshot.val();
+    Object.keys(value).forEach((key) => {
+      setTimeout(function() {
+        taskList.update(key, {completed:false});
+      }, 250);
+    });
+  });
 }
